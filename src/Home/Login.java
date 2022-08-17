@@ -47,7 +47,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\ Employee_Management\\src\\bg1.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tafhim\\Documents\\GitHub\\employee-management\\src\\Home\\bg1.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -81,7 +81,7 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setText("Password");
         jPasswordField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/but.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tafhim\\Documents\\GitHub\\employee-management\\src\\Home\\but.png")); // NOI18N
         jLabel2.setText("jLabel2");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/but2.jpg"))); // NOI18N
