@@ -217,7 +217,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(secondPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(487, Short.MAX_VALUE))
+                .addContainerGap(471, Short.MAX_VALUE))
         );
 
         mainPanel.add(secondPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 1010, 660));
