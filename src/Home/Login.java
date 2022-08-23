@@ -210,22 +210,44 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        if(comboBox.getSelectedItem().toString() == "Admin"){
         String login = "SELECT * FROM REGISTRATION WHERE name=? AND password=?";
         try{
             ps = con.prepareStatement(login);
             ps.setString(1, toUpperCase(username.getText()));
             ps.setString(2, password.getText());
             rs = ps.executeQuery();
-            if(rs.next() && comboBox.getSelectedItem().toString() == "Admin"){
-                JOptionPane.showMessageDialog(null, "hoise");
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "Successful");
                 dispose();
                 new Dashboard().setVisible(true);
             }
             else{
-               JOptionPane.showMessageDialog(null, "GANJA");
+               JOptionPane.showMessageDialog(null, "Oops! Invaid");
             }
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else{
+        String login = "SELECT * FROM EMPLOYEES WHERE NAME=? AND EMPPASSWORD=?";
+        try{
+            ps = con.prepareStatement(login);
+            ps.setString(1, toUpperCase(username.getText()));
+            ps.setString(2, password.getText());
+            rs = ps.executeQuery();
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "Successful");
+                dispose();
+                new EmpDashboard().setVisible(true);
+            }
+            else{
+               JOptionPane.showMessageDialog(null, "Oops! Invaid");
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

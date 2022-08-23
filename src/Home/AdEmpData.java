@@ -5,17 +5,53 @@
  */
 package Home;
 
+import easymartmanagement.ItemListFrame;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Shaon
  */
 public class AdEmpData extends javax.swing.JFrame {
-
+       Connection con;
     /**
      * Creates new form AdEmpData
      */
     public AdEmpData() {
-        initComponents();
+        try {
+            initComponents();
+            javaconnect.connectdb();
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/logindb", "login", "12345");
+            System.out.println("database connected");
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        showAll();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+    
+    private void showAll() {
+        try {
+            String sql = "SELECT * FROM EMPLOYEES";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            EmpTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+
+        }
+
     }
 
     /**
@@ -29,29 +65,31 @@ public class AdEmpData extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        EmpTable = new javax.swing.JTable();
+        EmpID = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        memberIDField = new javax.swing.JTextField();
-        memberField = new javax.swing.JTextField();
-        addressField = new javax.swing.JTextField();
+        EmpIDField = new javax.swing.JTextField();
+        EmpName = new javax.swing.JTextField();
+        EmpDesig = new javax.swing.JTextField();
         phoneField = new javax.swing.JTextField();
         addMember = new javax.swing.JButton();
         updateMember = new javax.swing.JButton();
         deleteMember = new javax.swing.JButton();
         searchMember = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        EmpEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        EmpTable.setAutoCreateRowSorter(true);
+        EmpTable.setBackground(new java.awt.Color(204, 204, 204));
+        EmpTable.setForeground(new java.awt.Color(255, 255, 255));
+        EmpTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -89,17 +127,17 @@ public class AdEmpData extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(EmpTable);
 
-        jButton1.setText("Member ID");
-        jButton1.setActionCommand("memberid");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        EmpID.setText("Employee ID");
+        EmpID.setActionCommand("memberid");
+        EmpID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                EmpIDActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Member Name");
+        jButton2.setText("Employee Name");
 
         jButton3.setText("Designation");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -110,9 +148,15 @@ public class AdEmpData extends javax.swing.JFrame {
 
         jButton6.setText("Phone Number");
 
-        memberIDField.addActionListener(new java.awt.event.ActionListener() {
+        EmpIDField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                memberIDFieldActionPerformed(evt);
+                EmpIDFieldActionPerformed(evt);
+            }
+        });
+
+        EmpDesig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmpDesigActionPerformed(evt);
             }
         });
 
@@ -151,40 +195,45 @@ public class AdEmpData extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setForeground(new java.awt.Color(240, 240, 240));
+        jLabel1.setText("Email");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(EmpID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(EmpEmail)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(memberIDField, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                        .addComponent(memberField)
-                        .addComponent(addressField))
-                    .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
+                        .addComponent(EmpIDField, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                        .addComponent(EmpName)
+                        .addComponent(EmpDesig))
+                    .addComponent(phoneField, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(deleteMember, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(64, 64, 64))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(addMember, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(updateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchMember, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap()))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(deleteMember, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(addMember, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(updateMember, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchMember, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap())))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(360, 360, 360))
+                        .addComponent(jButton4)
+                        .addGap(360, 360, 360))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,20 +241,20 @@ public class AdEmpData extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(memberIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmpID)
+                    .addComponent(EmpIDField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteMember))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(memberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmpName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton2)
                             .addComponent(addMember))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton3)
-                            .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EmpDesig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(updateMember))
                         .addGap(18, 18, 18)
                         .addComponent(searchMember))
@@ -214,8 +263,12 @@ public class AdEmpData extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton6)
                             .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(EmpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(34, 34, 34))
         );
 
@@ -235,60 +288,54 @@ public class AdEmpData extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void EmpIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_EmpIDActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void memberIDFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_memberIDFieldActionPerformed
+    private void EmpIDFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpIDFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_memberIDFieldActionPerformed
+    }//GEN-LAST:event_EmpIDFieldActionPerformed
 
     private void addMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMemberActionPerformed
         // TODO add your handling code here:
         new EmployeeRecord().setVisible(true);
-        dispose();
-        /*int row = -1;
-        String memberID = toUpperCase(memberIDField.getText());
-        memberIDField.setText("");
-        String memberName = memberField.getText();
-        String address = addressField.getText();
-        Date date = Calendar.getInstance().getTime();
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-M-dd");
-        String register2 = dateFormat.format(date);
-
-        String mail = emailField.getText();
-        String phone = phoneField.getText();
-        memberField.setText("");
-        addressField.setText("");
-
-        emailField.setText("");
+        int row = -1;
+        String id = toUpperCase(EmpID.getText());
+        String name = EmpName.getText();
+        String desig = EmpDesig.getText();
+        String phn = phoneField.getText();
+        String email = EmpEmail.getText();
+        //int quantityint = Integer.parseInt(quantity);
+        //String unitPrice = unitPriceField.getText();
+        EmpID.setText("");
+        EmpName.setText("");
+        EmpDesig.setText("");
         phoneField.setText("");
-        //  System.out.println(register2);
+        EmpEmail.setText("");
         try {
-            String sql = "INSERT INTO MEMBERS(MEMBERID,MEMBERNAME, ADDRESS,REGISTERDATE,EMAIL,PHONE) VALUES( ?,  ?,  ?,  ?, ?,?)";
+            String sql = "INSERT INTO EMPLOYEES(ID, NAME, ROLE, PHN, EMAIL) VALUES( ?,  ?,  ?,  ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, memberID);
-            ps.setString(2, memberName);
-            ps.setString(3, address);
-            ps.setString(4, register2);
-            ps.setString(5, mail);
-            ps.setString(6, phone);
+            ps.setString(1, id);
+            ps.setString(2, name);
+            ps.setString(3, "Employee");
+            ps.setString(4, phn);
+            ps.setString(4, email);
 
             row = ps.executeUpdate();
 
-            System.out.println("Data insertionsuccessful.Row:" + row + "Information");
+            System.out.println("Inserted successfully");
             //  JOptionPane.showMessageDialog(null, "Data insertionsuccessful.Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(),
-                "Error", JOptionPane.INFORMATION_MESSAGE);
+                    "Error", JOptionPane.INFORMATION_MESSAGE);
 
         }
-        showAll();*/
+        showAll();
     }//GEN-LAST:event_addMemberActionPerformed
 
     private void updateMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMemberActionPerformed
@@ -324,10 +371,10 @@ public class AdEmpData extends javax.swing.JFrame {
 
     private void deleteMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMemberActionPerformed
         // TODO add your handling code here:
-        /*int row = -1;
+        int row = -1;
         try {
-            String memberID = toUpperCase(memberIDField.getText());
-            String sql = "DELETE FROM MEMBERS WHERE MEMBERID = '" + memberID + "'";
+            String id = toUpperCase(EmpIDField.getText());
+            String sql = "DELETE FROM EMPLOYEES WHERE ID = '" + id + "'";
 
             Statement st = con.createStatement();
 
@@ -339,33 +386,30 @@ public class AdEmpData extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
         }
-        showAll();*/
+        showAll();
     }//GEN-LAST:event_deleteMemberActionPerformed
 
     private void searchMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchMemberActionPerformed
         // TODO add your handling code here:
-        /*try {
+        try {
             // TODO add your handling code here:
-            String memberID = toUpperCase(memberIDField.getText());
-            String sql = "SELECT * FROM MEMBERS WHERE MEMBERID = '" +memberID +"'";
+            String id = toUpperCase(EmpIDField.getText());
+            String sql = "SELECT * FROM EMPLOYEES WHERE ID = '" +id +"'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            //  SimpleDateFormat formatter = null;
-            DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+            
             while(rs.next())
             {
-
-                memberField.setText(rs.getString("MEMBERNAME"));
-                addressField.setText(rs.getString("ADDRESS"));
-                String strDate = dateFormat.format(rs.getDate("REGISTERDATE"));
-
-                emailField.setText(rs.getString("EMAIL"));
-                phoneField.setText(rs.getString("PHONE"));
+                
+                EmpName.setText(rs.getString("NAME"));
+                EmpDesig.setText(rs.getString("EMPLOYEE"));
+                phoneField.setText(rs.getString("PHN"));
+                EmpEmail.setText(rs.getString("EMAIL"));
             }
-
+            
         } catch (SQLException ex) {
             Logger.getLogger(ItemListFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
     }//GEN-LAST:event_searchMemberActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -373,6 +417,10 @@ public class AdEmpData extends javax.swing.JFrame {
         new Dashboard().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void EmpDesigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpDesigActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmpDesigActionPerformed
 
     /**
      * @param args the command line arguments
@@ -410,19 +458,21 @@ public class AdEmpData extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField EmpDesig;
+    private javax.swing.JTextField EmpEmail;
+    private javax.swing.JButton EmpID;
+    private javax.swing.JTextField EmpIDField;
+    private javax.swing.JTextField EmpName;
+    private javax.swing.JTable EmpTable;
     private javax.swing.JButton addMember;
-    private javax.swing.JTextField addressField;
     private javax.swing.JButton deleteMember;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField memberField;
-    private javax.swing.JTextField memberIDField;
     private javax.swing.JTextField phoneField;
     private javax.swing.JButton searchMember;
     private javax.swing.JButton updateMember;
