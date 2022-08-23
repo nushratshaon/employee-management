@@ -158,7 +158,7 @@ public class Register extends javax.swing.JFrame {
         jButton5.setBounds(638, 435, 100, 30);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("Exit");
+        jButton3.setText("Dashboard");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -214,6 +214,7 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        new Dashboard().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
