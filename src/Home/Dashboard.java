@@ -40,6 +40,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         LogOutButton = new javax.swing.JButton();
+        adminSectionButton = new javax.swing.JButton();
         secondPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
@@ -74,6 +75,11 @@ public class Dashboard extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Employee Section");
         jButton2.setActionCommand("");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(52, 59, 61));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -100,6 +106,13 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        adminSectionButton.setText("Admin Section");
+        adminSectionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adminSectionButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SidePannelLayout = new javax.swing.GroupLayout(SidePannel);
         SidePannel.setLayout(SidePannelLayout);
         SidePannelLayout.setHorizontalGroup(
@@ -120,6 +133,7 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)))
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(adminSectionButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LogOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -155,9 +169,11 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
                     .addComponent(jLabel4))
-                .addGap(33, 33, 33)
+                .addGap(30, 30, 30)
+                .addComponent(adminSectionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(LogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(162, 162, 162))
+                .addGap(104, 104, 104))
         );
 
         mainPanel.add(SidePannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 660));
@@ -250,6 +266,18 @@ public class Dashboard extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_LogOutButtonActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new AdEmpData().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void adminSectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminSectionButtonActionPerformed
+        // TODO add your handling code here:
+        new adminSection().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_adminSectionButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -288,6 +316,7 @@ public class Dashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogOutButton;
     private javax.swing.JPanel SidePannel;
+    private javax.swing.JButton adminSectionButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

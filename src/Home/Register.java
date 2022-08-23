@@ -231,14 +231,14 @@ public class Register extends javax.swing.JFrame {
         txtPassword.setText("");
         txtAddress.setText("");
         try {
-            String sql = "INSERT INTO REGISTRATION(NAME,EMAIL, MOBILE,ADDRESS,PASSWORD) VALUES( ?,  ?,  ?,  ?, ?)";
+            String sql = "INSERT INTO REGISTRATION(NAME,EMAIL, MOBILE,ADDRESS,PASSWORD,ROLE) VALUES( ?,  ?,  ?,  ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setString(3, mobile);
             ps.setString(4, address);
             ps.setString(5, password);
-            
+            ps.setString(6,"Admin");
 
             row = ps.executeUpdate();
 
