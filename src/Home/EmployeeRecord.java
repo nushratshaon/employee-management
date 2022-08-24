@@ -72,7 +72,6 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        EmpPassword = new textfield.TextField();
         EmpName = new textfield.TextField();
         textField3 = new textfield.TextField();
         textField4 = new textfield.TextField();
@@ -84,6 +83,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         EmpId = new javax.swing.JTextField();
+        EmpPassword = new textfield.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -93,8 +93,10 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/dash.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/dash2.jpg"))); // NOI18N
         jLabel3.setText("jLabel3");
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/dash3.png"))); // NOI18N
         jLabel5.setText("jLabel5");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/dash4.png"))); // NOI18N
@@ -128,6 +130,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(102, 102, 102));
         jButton4.setText(" leave ");
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/salarybut.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -139,6 +142,8 @@ public class EmployeeRecord extends javax.swing.JFrame {
             }
         });
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton8.setForeground(new java.awt.Color(102, 102, 102));
         jButton8.setText("Admin Section");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +151,8 @@ public class EmployeeRecord extends javax.swing.JFrame {
             }
         });
 
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton9.setForeground(new java.awt.Color(102, 102, 102));
         jButton9.setText("Log Out");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,11 +171,13 @@ public class EmployeeRecord extends javax.swing.JFrame {
                         .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(SidePannelLayout.createSequentialGroup()
                                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(SidePannelLayout.createSequentialGroup()
+                                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(6, 6, 6))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePannelLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -193,31 +202,34 @@ public class EmployeeRecord extends javax.swing.JFrame {
         SidePannelLayout.setVerticalGroup(
             SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidePannelLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addGap(29, 29, 29)
-                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jLabel5))
-                .addGap(50, 50, 50)
-                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addGap(36, 36, 36)
-                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jButton5))
-                .addGap(46, 46, 46)
+                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SidePannelLayout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jButton1))
+                        .addGap(29, 29, 29)
+                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(45, 45, 45)
+                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton3)
+                            .addComponent(jLabel5))
+                        .addGap(47, 47, 47)
+                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton4)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addComponent(jButton5))
+                    .addGroup(SidePannelLayout.createSequentialGroup()
+                        .addContainerGap(416, Short.MAX_VALUE)
+                        .addComponent(jLabel4)))
+                .addGap(49, 49, 49)
                 .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(52, 52, 52)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 137, Short.MAX_VALUE))
+                .addGap(0, 139, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -230,7 +242,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 772, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SidePannel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -267,12 +279,12 @@ public class EmployeeRecord extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 680, 113, 43));
+        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 113, 43));
 
         jButton7.setBackground(new java.awt.Color(255, 255, 255));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton7.setText("EDIT");
-        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 680, 118, 43));
+        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 700, 118, 43));
 
         jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -292,10 +304,6 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
         jComboBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, 200, 20));
-
-        EmpPassword.setBackground(new java.awt.Color(195, 218, 219));
-        EmpPassword.setLabelText("Parmanent Address");
-        jPanel3.add(EmpPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 495, -1));
 
         EmpName.setBackground(new java.awt.Color(195, 218, 219));
         EmpName.setLabelText("Name");
@@ -335,8 +343,12 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 90, 30));
 
         jLabel8.setText("ID");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 710, 100, 20));
-        jPanel3.add(EmpId, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 710, 160, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 100, 20));
+        jPanel3.add(EmpId, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 160, -1));
+
+        EmpPassword.setBackground(new java.awt.Color(195, 218, 219));
+        EmpPassword.setLabelText("Password");
+        jPanel3.add(EmpPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 495, -1));
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
@@ -352,7 +364,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(SidePanelLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 734, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

@@ -30,7 +30,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,7 +50,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jButton6" alignment="0" pref="125" max="32767" attributes="0"/>
+                      <Component id="jButton6" alignment="0" max="32767" attributes="0"/>
                       <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
                       <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
                       <Component id="EmpID" alignment="0" max="32767" attributes="0"/>
@@ -59,32 +59,25 @@
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="EmpEmail" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="EmpIDField" pref="225" max="32767" attributes="0"/>
-                          <Component id="EmpName" max="32767" attributes="0"/>
-                          <Component id="EmpDesig" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="EmpIDField" pref="225" max="32767" attributes="0"/>
+                      <Component id="EmpName" max="32767" attributes="0"/>
+                      <Component id="EmpDesig" max="32767" attributes="0"/>
                       <Component id="phoneField" pref="225" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="120" max="32767" attributes="0"/>
+                  <EmptySpace min="389" pref="276" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="deleteMember" min="-2" pref="166" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="addMember" min="-2" pref="166" max="-2" attributes="0"/>
-                                  <Component id="updateMember" min="-2" pref="166" max="-2" attributes="0"/>
-                                  <Component id="searchMember" min="-2" pref="166" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="360" max="-2" attributes="0"/>
+                          <Component id="deleteMember" min="-2" pref="166" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="addMember" pref="166" max="32767" attributes="0"/>
+                              <Component id="updateMember" pref="166" max="32767" attributes="0"/>
+                              <Component id="searchMember" pref="166" max="32767" attributes="0"/>
+                              <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -125,15 +118,19 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jButton4" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="EmpEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="EmpEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Component id="jButton4" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -150,7 +147,7 @@
               <Properties>
                 <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -208,6 +205,12 @@
         </Container>
         <Component class="javax.swing.JButton" name="EmpID">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="99" red="99" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Employee ID"/>
             <Property name="actionCommand" type="java.lang.String" value="memberid"/>
           </Properties>
@@ -289,10 +292,13 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Email"/>
+            <Property name="text" type="java.lang.String" value="         Email"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="EmpEmail">
