@@ -383,6 +383,11 @@ public class AdEmpData extends javax.swing.JFrame {
             row = st.executeUpdate(sql);
 
             System.out.println("Deletion successful. Row:" + row + " Information");
+            EmpID.setText("");
+            EmpName.setText("");
+            EmpDesig.setText("");
+            phoneField.setText("");
+            EmpEmail.setText("");
             //  JOptionPane.showMessageDialog(null, "Deletion successful. Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
@@ -404,7 +409,7 @@ public class AdEmpData extends javax.swing.JFrame {
             {
                 
                 EmpName.setText(rs.getString("NAME"));
-                EmpDesig.setText(rs.getString("EMPLOYEE"));
+                EmpDesig.setText(rs.getString("ROLE"));
                 phoneField.setText(rs.getString("PHN"));
                 EmpEmail.setText(rs.getString("EMAIL"));
             }

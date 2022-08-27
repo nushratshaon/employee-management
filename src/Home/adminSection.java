@@ -5,17 +5,51 @@
  */
 package Home;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author EFTI
  */
 public class adminSection extends javax.swing.JFrame {
-
+    Connection con;
     /**
      * Creates new form adminSection
      */
     public adminSection() {
-        initComponents();
+        try {
+            initComponents();
+            javaconnect.connectdb();
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/logindb", "login", "12345");
+            System.out.println("database connected");
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        showAll();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+    
+    private void showAll() {
+        try {
+            String sql = "SELECT * FROM REGISTRATION";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            AdminTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+
+        }
     }
 
     /**
@@ -36,12 +70,12 @@ public class adminSection extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        AdminTable = new javax.swing.JTable();
+        AdminID = new javax.swing.JTextField();
+        AdminName = new javax.swing.JTextField();
+        AdminNum = new javax.swing.JTextField();
+        desig = new javax.swing.JTextField();
+        AdminEmail = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
 
@@ -94,7 +128,7 @@ public class adminSection extends javax.swing.JFrame {
         jButton6.setText("Admin Number");
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 509, 127, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        AdminTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -129,16 +163,21 @@ public class adminSection extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(AdminTable);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 13, 1121, 363));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 270, 30));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 270, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 509, 270, -1));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 553, 270, -1));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 590, 270, -1));
+        jPanel1.add(AdminID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 270, 30));
+        jPanel1.add(AdminName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 270, -1));
+        jPanel1.add(AdminNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 509, 270, -1));
+        jPanel1.add(desig, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 553, 270, -1));
+        jPanel1.add(AdminEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 590, 270, -1));
 
         jButton7.setText("Search");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 415, 170, 30));
 
         jButton8.setText("Designation");
@@ -169,6 +208,42 @@ public class adminSection extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Register().setVisible(true);
         dispose();
+        int row = -1;
+        String id = toUpperCase(AdminID.getText());
+        String name = AdminName.getText();
+        String phn = AdminNum.getText();
+        //String phn = phoneField.getText();
+        String email = AdminEmail.getText();
+        //int quantityint = Integer.parseInt(quantity);
+        //String unitPrice = unitPriceField.getText();
+        AdminID.setText("");
+        AdminName.setText("");
+        desig.setText("");
+        AdminNum.setText("");
+        AdminEmail.setText("");
+        try {
+            String sql = "INSERT INTO REGISTRATION( NAME, EMAIL, PHN, ROLE) VALUES( ?,  ?,  ?,  ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            //ps.setString(1, id);
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, phn);
+            ps.setString(4, "Admin");
+            
+            
+
+            row = ps.executeUpdate();
+
+            System.out.println("Inserted successfully");
+            //  JOptionPane.showMessageDialog(null, "Data insertionsuccessful.Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(),
+                    "Error", JOptionPane.INFORMATION_MESSAGE);
+
+        }
+        showAll();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -188,6 +263,11 @@ public class adminSection extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,7 +305,13 @@ public class adminSection extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AdminEmail;
+    private javax.swing.JTextField AdminID;
+    private javax.swing.JTextField AdminName;
+    private javax.swing.JTextField AdminNum;
+    private javax.swing.JTable AdminTable;
     private javax.swing.JButton EmpID;
+    private javax.swing.JTextField desig;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -236,11 +322,5 @@ public class adminSection extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

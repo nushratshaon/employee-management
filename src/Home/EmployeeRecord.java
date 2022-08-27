@@ -343,8 +343,8 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 90, 30));
 
         jLabel8.setText("ID");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 100, 20));
-        jPanel3.add(EmpId, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 160, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 720, 30, 20));
+        jPanel3.add(EmpId, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 720, 160, -1));
 
         EmpPassword.setBackground(new java.awt.Color(195, 218, 219));
         EmpPassword.setLabelText("Password");
