@@ -5,7 +5,6 @@
  */
 package Home;
 
-import easymartmanagement.ItemListFrame;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -527,7 +526,7 @@ public class AdEmpData extends javax.swing.JFrame {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(ItemListFrame.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(ItemListFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_searchMemberActionPerformed
 
