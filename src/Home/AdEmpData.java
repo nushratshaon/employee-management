@@ -95,6 +95,8 @@ public class AdEmpData extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        empAddress = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,7 +146,7 @@ public class AdEmpData extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(EmpTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 0, 880, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 0, 880, 400));
 
         EmpID.setBackground(new java.awt.Color(153, 153, 153));
         EmpID.setForeground(new java.awt.Color(51, 51, 51));
@@ -387,6 +389,10 @@ public class AdEmpData extends javax.swing.JFrame {
         jButton10.setActionCommand("         Email");
         jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 670, 120, -1));
 
+        jLabel1.setText("Address");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 120, 20));
+        jPanel1.add(empAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 230, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -453,22 +459,22 @@ public class AdEmpData extends javax.swing.JFrame {
 
     private void updateMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMemberActionPerformed
         // TODO add your handling code here:
-        /*int row = -1;
-        String memberID = toUpperCase(memberIDField.getText());
-        //  memberIDField.setText("");
-        String memberName = memberField.getText();
-        String address = addressField.getText();
+        int row = -1;
+        String id = toUpperCase(EmpIDField.getText());
+        String name = EmpName.getText();
+        String address = empAddress.getText();
 
-        String mail = emailField.getText();
-        String phone = phoneField.getText();
-        //      memberField.setText("");
-        //      addressField.setText("");
-        //     registerdateField.setText("");
-        //     emailField.setText("");
-        //     phoneField.setText("");
+        String mail = EmpEmail.getText();
+        String phn = phoneField.getText();
+        EmpIDField.setText("");
+        EmpName.setText("");
+        empAddress.setText("");
+        EmpDesig.setText("");
+        EmpEmail.setText("");
+        phoneField.setText("");
 
         try {
-            String sql = "UPDATE MEMBERS SET MEMBERNAME = '" + memberName + "', ADDRESS = '" + address +  "', EMAIL = '" + mail + "', PHONE = '" + phone + "' WHERE MEMBERID = '" + memberID+ "'";
+            String sql = "UPDATE EMPLOYEES SET NAME = '" + name + "', ADDRESS = '" + address + "', EMAIL = '" + mail + "', PHN = '" + phn + "' WHERE ID = '" + id+ "'";
             Statement st = con.createStatement();
             row = st.executeUpdate(sql);
 
@@ -479,7 +485,7 @@ public class AdEmpData extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
 
         }
-        showAll();*/
+        showAll();
     }//GEN-LAST:event_updateMemberActionPerformed
 
     private void deleteMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMemberActionPerformed
@@ -518,7 +524,7 @@ public class AdEmpData extends javax.swing.JFrame {
             
             while(rs.next())
             {
-                
+                empAddress.setText(rs.getString("ADDRESS"));
                 EmpName.setText(rs.getString("NAME"));
                 EmpDesig.setText(rs.getString("ROLE"));
                 phoneField.setText(rs.getString("PHN"));
@@ -611,6 +617,7 @@ public class AdEmpData extends javax.swing.JFrame {
     private javax.swing.JButton addMember;
     private javax.swing.JButton adminSectionButton;
     private javax.swing.JButton deleteMember;
+    private javax.swing.JTextField empAddress;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
@@ -621,6 +628,7 @@ public class AdEmpData extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;

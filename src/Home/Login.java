@@ -9,6 +9,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import static jdk.nashorn.internal.objects.NativeString.toLowerCase;
 import static jdk.nashorn.internal.objects.NativeString.toUpperCase;
 
 /**
@@ -211,8 +212,10 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        if(comboBox.getSelectedItem().toString() == "Admin"){
+        /*String user = comboBox.getSelectedItem().toString();
+        EmpDashboard ed = new EmpDashboard();
+        ed.username(user);*/
+        /*if(comboBox.getSelectedItem().toString() == "Admin"){
         String login = "SELECT * FROM REGISTRATION WHERE name=? AND password=?";
         try{
             ps = con.prepareStatement(login);
@@ -238,6 +241,8 @@ public class Login extends javax.swing.JFrame {
             ps.setString(1, toUpperCase(username.getText()));
             ps.setString(2, password.getText());
             rs = ps.executeQuery();
+            //String uname = rs.getString("uname");
+            //Emp.empname = uname;
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Successful");
                 dispose();
@@ -248,6 +253,56 @@ public class Login extends javax.swing.JFrame {
             }
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, ex);
+        }
+        }*/
+        if(comboBox.getSelectedItem().toString() == "Admin"){
+        String login = "SELECT * FROM REGISTRATION WHERE name=? AND password=?";
+        try{
+            ps = con.prepareStatement(login);
+            ps.setString(1, toUpperCase(username.getText()));
+            ps.setString(2, password.getText());
+            rs = ps.executeQuery();
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "Successful");
+                dispose();
+                new Dashboard().setVisible(true);
+            }
+            else{
+               JOptionPane.showMessageDialog(null, "Oops! Invaid");
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else {
+            try {
+            // TODO add your handling code here:
+            String uname = toLowerCase(username.getText());
+            String pass = password.getText();
+            String sql = "SELECT * FROM EMPLOYEES WHERE NAME = '"+ uname + "'";
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            String passw = null;
+            String role = null;
+            String name = null;
+            //String userName = null;
+            while (rs.next()) {
+
+                passw = rs.getString("EMPPASSWORD");
+                role = rs.getString("ROLE");
+                name = rs.getString("NAME");
+
+            }
+            if (pass.equals(passw) && role.equals("Employee")) {
+                new EmpDashboard().setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Oops! Invaid", "Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        } catch (SQLException ex) {
+            //  JOptionPane.showMessageDialog(null, "Login successfull" , "Information", JOptionPane.INFORMATION_MESSAGE);
+            //Logger.getLogger(ItemListFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

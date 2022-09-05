@@ -73,7 +73,6 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         EmpName = new textfield.TextField();
         textField3 = new textfield.TextField();
         textField4 = new textfield.TextField();
@@ -86,6 +85,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         EmpId = new javax.swing.JTextField();
         EmpPassword = new textfield.TextField();
+        sal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -301,11 +301,6 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jRadioButton4.setText("Male");
         jPanel3.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 554, 170, 20));
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, 200, 20));
-
         EmpName.setBackground(new java.awt.Color(195, 218, 219));
         EmpName.setLabelText("Name");
         EmpName.addActionListener(new java.awt.event.ActionListener() {
@@ -355,6 +350,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
         EmpPassword.setBackground(new java.awt.Color(195, 218, 219));
         EmpPassword.setLabelText("Password");
         jPanel3.add(EmpPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 495, -1));
+        jPanel3.add(sal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, 200, -1));
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
@@ -392,6 +388,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
         String mobile = EmpPhnNo.getText();
         String password = EmpPassword.getText();
         String id = EmpId.getText();
+        String salary = sal.getText();
         EmpName.setText("");
         EmpEmail.setText("");
         EmpPhnNo.setText("");
@@ -399,15 +396,16 @@ public class EmployeeRecord extends javax.swing.JFrame {
         EmpAddress.setText("");
         EmpId.setText("");
         try {
-            String sql = "INSERT INTO EMPLOYEES(NAME,EMPPASSWORD,ROLE, ID, EMAIL, PHN, ADDRESS) VALUES( ?,  ?, ?,  ?, ?, ?, ?)";
+            String sql = "INSERT INTO EMPLOYEES(NAME,EMPPASSWORD,ROLE, ID, EMAIL,ADDRESS, PHN, SALARY) VALUES( ?,  ?, ?,  ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, password);
             ps.setString(3,"Employee");
             ps.setString(4,id);
             ps.setString(5, email);
-            ps.setString(6, mobile);
-            ps.setString(7, address);
+            ps.setString(6, address);
+            ps.setString(7, mobile);
+            ps.setString(8, salary);
 
             row = ps.executeUpdate();
 
@@ -503,7 +501,6 @@ public class EmployeeRecord extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -523,6 +520,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JTextField sal;
     private textfield.TextField textField3;
     private textfield.TextField textField4;
     private textfield.TextField textField5;

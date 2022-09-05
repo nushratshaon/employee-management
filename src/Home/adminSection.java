@@ -266,7 +266,25 @@ public class adminSection extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-        
+        try {
+            // TODO add your handling code here:
+            String id = toUpperCase(AdminName.getText());
+            String sql = "SELECT * FROM REGISTRATION WHERE NAME = " +id;
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next())
+            {
+                
+                //EmpName.setText(rs.getString("NAME"));
+                desig.setText(rs.getString("Admin"));
+                AdminNum.setText(rs.getString("MOBILE"));
+                AdminEmail.setText(rs.getString("EMAIL"));
+            }
+            
+        } catch (SQLException ex) {
+            
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
