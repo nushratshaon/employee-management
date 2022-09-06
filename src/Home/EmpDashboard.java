@@ -5,24 +5,53 @@
  */
 package Home;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+
 /**
  *
  * @author EFTI
  */
 public class EmpDashboard extends javax.swing.JFrame {
-
+Connection con;
     /**
      * Creates new form EmpDashboard
      */
     public EmpDashboard() {
-        initComponents();
+        //initComponents();
          nameField.setText("Please log in first for name");
+         try {
+            initComponents();
+            javaconnect.connectdb();
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/logindb", "login", "12345");
+            System.out.println("database connected");
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //showAll();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         //setLocationRelativeTo(null);
         //nameField.setText(String.valueOf(Emp.empname).toString());
     }
-    public EmpDashboard(String name){
-         initComponents();
+    public EmpDashboard(String name, String id){
+         try {
+            initComponents();
+            javaconnect.connectdb();
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/logindb", "login", "12345");
+            System.out.println("database connected");
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //showAll();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         nameField.setText(name);
+        ide.setText(id);
     }
     
     /*void username(String user){
@@ -61,7 +90,7 @@ public class EmpDashboard extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        textField1 = new textfield.TextField();
+        ide = new textfield.TextField();
         nameField = new textfield.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -260,9 +289,9 @@ public class EmpDashboard extends javax.swing.JFrame {
         jComboBox1.setBackground(new java.awt.Color(204, 204, 255));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        textField1.setBackground(new java.awt.Color(204, 204, 255));
-        textField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        textField1.setLabelText("Employee ID :");
+        ide.setBackground(new java.awt.Color(204, 204, 255));
+        ide.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ide.setLabelText("Employee ID :");
 
         nameField.setBackground(new java.awt.Color(204, 204, 255));
         nameField.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -282,7 +311,7 @@ public class EmpDashboard extends javax.swing.JFrame {
                         .addGap(356, 356, 356)
                         .addGroup(secondPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textField1, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE))))
+                            .addComponent(ide, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE))))
                 .addContainerGap(78, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -305,7 +334,7 @@ public class EmpDashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ide, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43)
                 .addGroup(secondPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,8 +376,16 @@ public class EmpDashboard extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        new EmployeeProfile2().setVisible(true);
+        //new EmployeeProfile2().setVisible(true);
         dispose();
+        String name = nameField.getText();
+        String id = ide.getText();
+        String sql = "SELECT * FROM EMPLOYEES WHERE NAME = '"+ id + "' OR ID = '"+ id + "'";
+            
+            
+            new EmployeeProfile2(name,id).setVisible(true);
+            dispose();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void LogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutButtonActionPerformed
@@ -359,6 +396,8 @@ public class EmpDashboard extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        new EmLeave().setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -406,6 +445,7 @@ public class EmpDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogOutButton;
     private javax.swing.JPanel SidePannel;
+    private textfield.TextField ide;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -428,6 +468,5 @@ public class EmpDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel mainpannel;
     private textfield.TextField nameField;
     private javax.swing.JPanel secondPanel;
-    private textfield.TextField textField1;
     // End of variables declaration//GEN-END:variables
 }

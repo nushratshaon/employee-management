@@ -72,6 +72,11 @@ public class AdminLeave extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Dashboard");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(52, 59, 61));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -102,6 +107,11 @@ public class AdminLeave extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Salary");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         LogOutButton.setBackground(new java.awt.Color(52, 59, 61));
         LogOutButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -357,6 +367,18 @@ public class AdminLeave extends javax.swing.JFrame {
         new adminSection().setVisible(true);
         dispose();
     }//GEN-LAST:event_adminSectionButtonActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        new SalaryList().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new Dashboard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -85,6 +85,8 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         EmpId = new javax.swing.JTextField();
         EmpPassword = new textfield.TextField();
+        blood = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         sal = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -350,7 +352,11 @@ public class EmployeeRecord extends javax.swing.JFrame {
         EmpPassword.setBackground(new java.awt.Color(195, 218, 219));
         EmpPassword.setLabelText("Password");
         jPanel3.add(EmpPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 495, -1));
-        jPanel3.add(sal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, 200, -1));
+        jPanel3.add(blood, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, 200, -1));
+
+        jLabel9.setText("Salary");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 600, 50, 30));
+        jPanel3.add(sal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 610, 130, 20));
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
@@ -395,17 +401,19 @@ public class EmployeeRecord extends javax.swing.JFrame {
         EmpPassword.setText("");
         EmpAddress.setText("");
         EmpId.setText("");
+        sal.setText("");
         try {
             String sql = "INSERT INTO EMPLOYEES(NAME,EMPPASSWORD,ROLE, ID, EMAIL,ADDRESS, PHN, SALARY) VALUES( ?,  ?, ?,  ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, password);
             ps.setString(3,"Employee");
-            ps.setString(4,id);
+            
+            ps.setString(4, id);
             ps.setString(5, email);
             ps.setString(6, address);
             ps.setString(7, mobile);
-            ps.setString(8, salary);
+            ps.setString(8,salary);
 
             row = ps.executeUpdate();
 
@@ -492,6 +500,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
     private javax.swing.JPanel SidePanel;
     private javax.swing.JPanel SidePannel;
     private javax.swing.JButton adminSectionButton;
+    private javax.swing.JTextField blood;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
@@ -516,6 +525,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JRadioButton jRadioButton3;

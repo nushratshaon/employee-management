@@ -212,49 +212,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        /*String user = comboBox.getSelectedItem().toString();
-        EmpDashboard ed = new EmpDashboard();
-        ed.username(user);*/
-        /*if(comboBox.getSelectedItem().toString() == "Admin"){
-        String login = "SELECT * FROM REGISTRATION WHERE name=? AND password=?";
-        try{
-            ps = con.prepareStatement(login);
-            ps.setString(1, toUpperCase(username.getText()));
-            ps.setString(2, password.getText());
-            rs = ps.executeQuery();
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null, "Successful");
-                dispose();
-                new Dashboard().setVisible(true);
-            }
-            else{
-               JOptionPane.showMessageDialog(null, "Oops! Invaid");
-            }
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        }
-        else{
-        String login = "SELECT * FROM EMPLOYEES WHERE NAME=? AND EMPPASSWORD=?";
-        try{
-            ps = con.prepareStatement(login);
-            ps.setString(1, toUpperCase(username.getText()));
-            ps.setString(2, password.getText());
-            rs = ps.executeQuery();
-            //String uname = rs.getString("uname");
-            //Emp.empname = uname;
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null, "Successful");
-                dispose();
-                new EmpDashboard().setVisible(true);
-            }
-            else{
-               JOptionPane.showMessageDialog(null, "Oops! Invaid");
-            }
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        }*/
+        
         if(comboBox.getSelectedItem().toString() == "Admin"){
         String login = "SELECT * FROM REGISTRATION WHERE name=? AND password=?";
         try{
@@ -279,22 +237,26 @@ public class Login extends javax.swing.JFrame {
             // TODO add your handling code here:
             String uname = toUpperCase(username.getText());
             String pass = password.getText();
-            String sql = "SELECT * FROM EMPLOYEES WHERE NAME = '"+ uname + "'";
+            //String id = null;
+            String sql = "SELECT * FROM EMPLOYEES WHERE NAME = '"+ uname + "' OR ID = '"+ uname + "'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             String passw = null;
             String role = null;
             String name = null;
+            String id = null;
+            
             //String userName = null;
             while (rs.next()) {
 
                 passw = rs.getString("EMPPASSWORD");
                 role = rs.getString("ROLE");
                 name = rs.getString("NAME");
+                id = rs.getString("ID");
 
             }
             if (pass.equals(passw) && role.equals("Employee")) {
-                new EmpDashboard(name).setVisible(true);
+                new EmpDashboard(name,id).setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Oops! Invaid", "Information", JOptionPane.INFORMATION_MESSAGE);

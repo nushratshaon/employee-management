@@ -1,75 +1,14 @@
-Tue Sep 06 12:27:51 BDT 2022 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+Tue Sep 06 19:27:04 BDT 2022 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Tue Sep 06 12:27:56 BDT 2022:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0183-117b-d489-00002d871a82 
-on database directory C:\Users\Shaon\Documents\New folder\employee-management\Database\source\logindb with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
-Loaded from file:/C:/Users/Shaon/Downloads/easy-mart/db-derby-10.14.2.0-bin/lib/derby.jar
+Tue Sep 06 19:27:11 BDT 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0183-12fb-a2bb-00001740a8b9 
+on database directory D:\project\employee-management\Database\source\logindb with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/E:/java/jdk1.8.0_311/db-derby-10.14.2.0-bin/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_311-b11
-user.dir=C:\Users\Shaon\Downloads\easy-mart\db-derby-10.14.2.0-bin
+user.dir=E:\java\jdk1.8.0_311\db-derby-10.14.2.0-bin
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
-derby.system.home=C:\Users\Shaon\Documents\New folder\employee-management\Database\source
+derby.system.home=D:\project\employee-management\Database\source
 Database Class Loader started - derby.database.classpath=''
-Tue Sep 06 15:26:36 BDT 2022 Thread[DRDAConnThread_13,5,main] Cleanup action starting
-java.sql.SQLException: Database 'easymart' not found.
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: ERROR XJ004: Database 'easymart' not found.
-	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	... 21 more
-============= begin nested exception, level (1) ===========
-ERROR XJ004: Database 'easymart' not found.
-	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
-	at org.apache.derby.jdbc.EmbeddedDriver.connect(Unknown Source)
-	at org.apache.derby.impl.drda.Database.makeConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.getConnFromDatabaseName(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.verifyUserIdPassword(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseSECCHK(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
-	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-============= end nested exception, level (1) ===========
-Cleanup action completed
-Tue Sep 06 15:26:36 BDT 2022 Thread[DRDAConnThread_13,5,main] (DATABASE = easymart), (DRDAID = {100}), Database 'easymart' not found.
-----------------------------------------------------------------
-Tue Sep 06 15:47:00 BDT 2022: Shutting down Derby engine
-----------------------------------------------------------------
-Tue Sep 06 15:47:00 BDT 2022:
-Shutting down instance a816c00e-0183-117b-d489-00002d871a82 on database directory C:\Users\Shaon\Documents\New folder\employee-management\Database\source\logindb with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
-----------------------------------------------------------------

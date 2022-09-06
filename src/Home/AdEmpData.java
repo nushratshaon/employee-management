@@ -97,6 +97,8 @@ public class AdEmpData extends javax.swing.JFrame {
         jButton10 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         empAddress = new javax.swing.JTextField();
+        sala = new javax.swing.JLabel();
+        sa = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -146,7 +148,7 @@ public class AdEmpData extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(EmpTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 0, 880, 400));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 0, 880, 350));
 
         EmpID.setBackground(new java.awt.Color(153, 153, 153));
         EmpID.setForeground(new java.awt.Color(51, 51, 51));
@@ -157,10 +159,10 @@ public class AdEmpData extends javax.swing.JFrame {
                 EmpIDActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, 125, -1));
+        jPanel1.add(EmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 125, -1));
 
         jButton2.setText("Employee Name");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 510, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, -1, -1));
 
         jButton3.setText("Designation");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -168,26 +170,26 @@ public class AdEmpData extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 560, 125, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 125, -1));
 
         jButton6.setText("Phone Number");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, 125, -1));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, 125, -1));
 
         EmpIDField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmpIDFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpIDField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 225, -1));
-        jPanel1.add(EmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 225, -1));
+        jPanel1.add(EmpIDField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 225, -1));
+        jPanel1.add(EmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 225, -1));
 
         EmpDesig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmpDesigActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpDesig, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 225, -1));
-        jPanel1.add(phoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 620, 225, -1));
+        jPanel1.add(EmpDesig, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 225, -1));
+        jPanel1.add(phoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 225, -1));
 
         addMember.setText("Add Member");
         addMember.addActionListener(new java.awt.event.ActionListener() {
@@ -228,7 +230,7 @@ public class AdEmpData extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 640, 166, -1));
-        jPanel1.add(EmpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 670, 225, -1));
+        jPanel1.add(EmpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 225, -1));
 
         SidePannel.setBackground(new java.awt.Color(52, 59, 61));
         SidePannel.setToolTipText("");
@@ -249,6 +251,11 @@ public class AdEmpData extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Dashboard");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(52, 59, 61));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -266,11 +273,21 @@ public class AdEmpData extends javax.swing.JFrame {
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Attendance");
         jButton7.setToolTipText("");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setBackground(new java.awt.Color(52, 59, 61));
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton8.setForeground(new java.awt.Color(255, 255, 255));
         jButton8.setText(" leave type");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/salarybut.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -387,11 +404,15 @@ public class AdEmpData extends javax.swing.JFrame {
 
         jButton10.setText("   Email");
         jButton10.setActionCommand("         Email");
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 670, 120, -1));
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 120, -1));
 
         jLabel1.setText("Address");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 120, 20));
-        jPanel1.add(empAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 230, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, 120, 20));
+        jPanel1.add(empAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 620, 230, -1));
+
+        sala.setText("Salary");
+        jPanel1.add(sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 670, 110, 30));
+        jPanel1.add(sa, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 680, 230, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -460,21 +481,22 @@ public class AdEmpData extends javax.swing.JFrame {
     private void updateMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMemberActionPerformed
         // TODO add your handling code here:
         int row = -1;
-        int id = Integer.parseInt(EmpIDField.getText());
+        String id = EmpIDField.getText();
         String name = EmpName.getText();
         String address = empAddress.getText();
 
         String mail = EmpEmail.getText();
         int phn = Integer.parseInt(phoneField.getText());
-        EmpIDField.setText("");
+        /*EmpIDField.setText("");
         EmpName.setText("");
         empAddress.setText("");
         EmpDesig.setText("");
         EmpEmail.setText("");
         phoneField.setText("");
+        sa.setText("");*/
 
         try {
-            String sql = "UPDATE EMPLOYEES SET NAME = '" + name + "', ADDRESS = '" + address + "', EMAIL = '" + mail + "', PHN = " + phn + " WHERE ID = " + id;
+            String sql = "UPDATE EMPLOYEES SET NAME = '" + name + "', ADDRESS = '" + address + "', EMAIL = '" + mail + "', PHN = " + phn + " WHERE ID = '" + id+ "'";
             Statement st = con.createStatement();
             row = st.executeUpdate(sql);
 
@@ -493,18 +515,20 @@ public class AdEmpData extends javax.swing.JFrame {
         int row = -1;
         try {
             String id = toUpperCase(EmpIDField.getText());
-            String sql = "DELETE FROM EMPLOYEES WHERE ID = " + id;
+            String sql = "DELETE FROM EMPLOYEES WHERE ID = '" + id+ "'";
 
             Statement st = con.createStatement();
 
             row = st.executeUpdate(sql);
 
             System.out.println("Deletion successful. Row:" + row + " Information");
-            EmpID.setText("");
+            EmpIDField.setText("");
             EmpName.setText("");
             EmpDesig.setText("");
             phoneField.setText("");
             EmpEmail.setText("");
+            empAddress.setText("");
+            sa.setText("");
             //  JOptionPane.showMessageDialog(null, "Deletion successful. Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
@@ -517,10 +541,11 @@ public class AdEmpData extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            String id = toUpperCase(EmpIDField.getText());
-            String sql = "SELECT * FROM EMPLOYEES WHERE ID = " +id;
+            String id = EmpIDField.getText();
+            String sql = "SELECT * FROM EMPLOYEES WHERE ID = '" +id+ "'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
+            System.out.println(id);
             
             while(rs.next())
             {
@@ -529,6 +554,7 @@ public class AdEmpData extends javax.swing.JFrame {
                 EmpDesig.setText(rs.getString("ROLE"));
                 phoneField.setText(rs.getString("PHN"));
                 EmpEmail.setText(rs.getString("EMAIL"));
+                sa.setText(rs.getString("SALARY"));
             }
             
         } catch (SQLException ex) {
@@ -569,6 +595,22 @@ public class AdEmpData extends javax.swing.JFrame {
          new SalaryList().setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+        new AdminLeave().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new Dashboard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -639,6 +681,8 @@ public class AdEmpData extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField phoneField;
+    private javax.swing.JTextField sa;
+    private javax.swing.JLabel sala;
     private javax.swing.JButton searchMember;
     private javax.swing.JButton updateMember;
     // End of variables declaration//GEN-END:variables

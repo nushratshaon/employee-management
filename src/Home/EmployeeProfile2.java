@@ -5,17 +5,47 @@
  */
 package Home;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
+
 /**
  *
  * @author Shaon
  */
 public class EmployeeProfile2 extends javax.swing.JFrame {
-
+Connection con;
     /**
      * Creates new form EmployeeProfile
      */
     public EmployeeProfile2() {
-        initComponents();
+        try {
+            initComponents();
+            javaconnect.connectdb();
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/logindb", "login", "12345");
+            System.out.println("database connected");
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //showAll();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+    
+    public EmployeeProfile2(String name, String id) {
+        try {
+            initComponents();
+            javaconnect.connectdb();
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/logindb", "login", "12345");
+            System.out.println("database connected");
+        } catch (SQLException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        //showAll();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        n.setText(name);
     }
 
     /**
@@ -62,8 +92,10 @@ public class EmployeeProfile2 extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        n = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("D:\\ Employee_Management\\src\\Home\\companyLogo.png")); // NOI18N
         jLabel12.setText("jLabel12");
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -105,6 +137,11 @@ public class EmployeeProfile2 extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Home");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(52, 59, 61));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -263,7 +300,6 @@ public class EmployeeProfile2 extends javax.swing.JFrame {
                 .addComponent(jLabel2))
         );
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("D:\\ Employee_Management\\src\\Home\\companyLogo.png")); // NOI18N
         jLabel14.setText("jLabel12");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -318,6 +354,12 @@ public class EmployeeProfile2 extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("ID :");
 
+        n.setText("jLabel24");
+
+        jLabel25.setText("jLabel25");
+
+        jLabel26.setText("jLabel26");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -358,7 +400,16 @@ public class EmployeeProfile2 extends javax.swing.JFrame {
                             .addGap(684, 684, 684)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel22)))
+                        .addComponent(jLabel22))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                            .addGap(521, 521, 521)
+                            .addComponent(n, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(229, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -375,21 +426,30 @@ public class EmployeeProfile2 extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(27, 27, 27)
                 .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel9)
-                .addGap(18, 18, 18)
+                .addGap(3, 3, 3)
+                .addComponent(n)
+                .addGap(1, 1, 1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel25))
+                .addGap(29, 29, 29)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel11)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel16)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel16))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel17)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel19)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addComponent(jLabel22)
                 .addGap(30, 30, 30)
                 .addComponent(jLabel21)
@@ -441,6 +501,12 @@ public class EmployeeProfile2 extends javax.swing.JFrame {
         new Login().setVisible(true);
         dispose();
     }//GEN-LAST:event_LogOutButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new EmpDashboard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -502,6 +568,8 @@ public class EmployeeProfile2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -514,5 +582,6 @@ public class EmployeeProfile2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel n;
     // End of variables declaration//GEN-END:variables
 }

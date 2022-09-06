@@ -106,10 +106,15 @@ public class adminSection extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 470, 171, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, 171, 40));
 
         jButton2.setText("Delet Admin");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 530, 171, 38));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 530, 171, 38));
 
         jButton4.setText("Back to Dashboard");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -117,7 +122,7 @@ public class adminSection extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 590, 171, 34));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 590, 171, 34));
 
         EmpID.setBackground(new java.awt.Color(255, 255, 255));
         EmpID.setForeground(new java.awt.Color(51, 51, 51));
@@ -181,7 +186,7 @@ public class adminSection extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(AdminTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 1121, 363));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 850, 363));
         jPanel1.add(AdminID, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 410, 270, 30));
         jPanel1.add(AdminName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 270, -1));
         jPanel1.add(AdminNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(208, 509, 270, -1));
@@ -194,7 +199,7 @@ public class adminSection extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 415, 170, 30));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 410, 170, 30));
 
         jButton8.setText("Designation");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -223,6 +228,11 @@ public class adminSection extends javax.swing.JFrame {
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Dashboard");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         jButton10.setBackground(new java.awt.Color(52, 59, 61));
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -245,6 +255,11 @@ public class adminSection extends javax.swing.JFrame {
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.setText(" leave ");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/salarybut.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
@@ -253,6 +268,11 @@ public class adminSection extends javax.swing.JFrame {
         jButton13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton13.setForeground(new java.awt.Color(255, 255, 255));
         jButton13.setText("Salary");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
 
         LogOutButton.setBackground(new java.awt.Color(52, 59, 61));
         LogOutButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -373,7 +393,7 @@ public class adminSection extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,22 +471,24 @@ public class adminSection extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             // TODO add your handling code here:
-            String id = toUpperCase(AdminName.getText());
-            String sql = "SELECT * FROM REGISTRATION WHERE NAME = " +id;
+            String id = AdminID.getText();
+            String sql = "SELECT * FROM REGISTRATION WHERE ID = '" +id+ "'";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
+            System.out.println(id);
             
             while(rs.next())
             {
-                
-                //EmpName.setText(rs.getString("NAME"));
-                desig.setText(rs.getString("Admin"));
+                //empAddress.setText(rs.getString("ADDRESS"));
+                AdminName.setText(rs.getString("NAME"));
+                desig.setText(rs.getString("ROLE"));
                 AdminNum.setText(rs.getString("MOBILE"));
                 AdminEmail.setText(rs.getString("EMAIL"));
+                //sa.setText(rs.getString("SALARY"));
             }
             
         } catch (SQLException ex) {
-            
+            //Logger.getLogger(ItemListFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -484,9 +506,53 @@ public class adminSection extends javax.swing.JFrame {
 
     private void adminSectionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminSectionButtonActionPerformed
         // TODO add your handling code here:
-        new adminSection().setVisible(true);
-        dispose();
+        
     }//GEN-LAST:event_adminSectionButtonActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        new SalaryList().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        new AdminLeave().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        new Dashboard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int row = -1;
+        try {
+            String id = toUpperCase(AdminID.getText());
+            String sql = "DELETE FROM REGISTRATION WHERE ID = '" + id+ "'";
+
+            Statement st = con.createStatement();
+
+            row = st.executeUpdate(sql);
+
+            System.out.println("Deletion successful. Row:" + row + " Information");
+            AdminID.setText("");
+            AdminName.setText("");
+            AdminNum.setText("");
+            desig.setText("");
+            AdminEmail.setText("");
+            //empAddress.setText("");
+            //sa.setText("");
+            //  JOptionPane.showMessageDialog(null, "Deletion successful. Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+        }
+        showAll();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

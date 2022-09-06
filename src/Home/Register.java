@@ -61,7 +61,7 @@ public class Register extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        adminId = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -180,15 +180,15 @@ public class Register extends javax.swing.JFrame {
         jPanel1.add(jLabel7);
         jLabel7.setBounds(300, 140, 70, 30);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        adminId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                adminIdActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1);
-        jTextField1.setBounds(390, 140, 350, 30);
+        jPanel1.add(adminId);
+        adminId.setBounds(390, 140, 350, 30);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/New folder/employee-management/src/Home/registration.png1.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/registration.png1.png"))); // NOI18N
         jLabel8.setText("jLabel8");
         jPanel1.add(jLabel8);
         jLabel8.setBounds(0, 0, 1030, 590);
@@ -235,18 +235,20 @@ public class Register extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int row = -1;
+        String id = adminId.getText();
         String name = toUpperCase(txtName.getText());
         txtName.setText("");
         String address = txtAddress.getText();
         String email =toLowerCase(txtEmail.getText());
         String mobile = txtMobile.getText();
         String password = txtPassword.getText();
+        adminId.setText("");
         txtEmail.setText("");
         txtMobile.setText("");
         txtPassword.setText("");
         txtAddress.setText("");
         try {
-            String sql = "INSERT INTO REGISTRATION(NAME,EMAIL, MOBILE,ADDRESS,PASSWORD,ROLE) VALUES( ?,  ?,  ?,  ?, ?, ?)";
+            String sql = "INSERT INTO REGISTRATION(NAME,EMAIL, MOBILE,ADDRESS,PASSWORD,ROLE,ID) VALUES(?, ?,  ?,  ?,  ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, email);
@@ -254,6 +256,7 @@ public class Register extends javax.swing.JFrame {
             ps.setString(4, address);
             ps.setString(5, password);
             ps.setString(6,"Admin");
+            ps.setString(7,id);
 
             row = ps.executeUpdate();
 
@@ -277,9 +280,9 @@ public class Register extends javax.swing.JFrame {
         txtAddress.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void adminIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_adminIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,6 +320,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField adminId;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -330,7 +334,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtMobile;
