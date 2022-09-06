@@ -287,7 +287,7 @@ Connection con;
         jLabel8.setText("Designation :");
 
         jComboBox1.setBackground(new java.awt.Color(204, 204, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CEO", "Manager", "Assistant Manager", "Stuff", "Sales Manager", "Accounting Manager", "Senior Engineer" }));
 
         ide.setBackground(new java.awt.Color(204, 204, 255));
         ide.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

@@ -148,7 +148,7 @@ public class AdEmpData extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(EmpTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 0, 880, 350));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 860, 350));
 
         EmpID.setBackground(new java.awt.Color(153, 153, 153));
         EmpID.setForeground(new java.awt.Color(51, 51, 51));
@@ -159,10 +159,10 @@ public class AdEmpData extends javax.swing.JFrame {
                 EmpIDActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 370, 125, -1));
+        jPanel1.add(EmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 125, -1));
 
         jButton2.setText("Employee Name");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, -1, -1));
 
         jButton3.setText("Designation");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -170,26 +170,26 @@ public class AdEmpData extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 125, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 490, 125, -1));
 
         jButton6.setText("Phone Number");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, 125, -1));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 125, -1));
 
         EmpIDField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmpIDFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpIDField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 225, -1));
-        jPanel1.add(EmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 225, -1));
+        jPanel1.add(EmpIDField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 225, -1));
+        jPanel1.add(EmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 225, -1));
 
         EmpDesig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmpDesigActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpDesig, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 225, -1));
-        jPanel1.add(phoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 225, -1));
+        jPanel1.add(EmpDesig, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, 225, -1));
+        jPanel1.add(phoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 550, 225, -1));
 
         addMember.setText("Add Member");
         addMember.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +221,7 @@ public class AdEmpData extends javax.swing.JFrame {
                 searchMemberActionPerformed(evt);
             }
         });
-        jPanel1.add(searchMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 590, 166, -1));
+        jPanel1.add(searchMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 600, 166, -1));
 
         jButton4.setText("Back to Dashboard");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -229,8 +229,8 @@ public class AdEmpData extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 640, 166, -1));
-        jPanel1.add(EmpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 225, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 650, 166, -1));
+        jPanel1.add(EmpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 230, -1));
 
         SidePannel.setBackground(new java.awt.Color(52, 59, 61));
         SidePannel.setToolTipText("");
@@ -347,10 +347,10 @@ public class AdEmpData extends javax.swing.JFrame {
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(SidePannelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(SidePannelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(adminSectionButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -360,16 +360,16 @@ public class AdEmpData extends javax.swing.JFrame {
                     .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LogOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         SidePannelLayout.setVerticalGroup(
             SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidePannelLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addContainerGap(154, Short.MAX_VALUE)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -400,29 +400,29 @@ public class AdEmpData extends javax.swing.JFrame {
                 .addGap(90, 90, 90))
         );
 
-        jPanel1.add(SidePannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 720));
+        jPanel1.add(SidePannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 800));
 
         jButton10.setText("   Email");
         jButton10.setActionCommand("         Email");
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 120, -1));
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 610, 120, -1));
 
         jLabel1.setText("Address");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, 120, 20));
-        jPanel1.add(empAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 620, 230, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 670, 120, 20));
+        jPanel1.add(empAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 670, 230, -1));
 
         sala.setText("Salary");
-        jPanel1.add(sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 670, 110, 30));
-        jPanel1.add(sa, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 680, 230, 20));
+        jPanel1.add(sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 710, 110, 30));
+        jPanel1.add(sa, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 730, 230, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1221, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 723, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -562,12 +562,6 @@ public class AdEmpData extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchMemberActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        new Dashboard().setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void EmpDesigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpDesigActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmpDesigActionPerformed
@@ -611,6 +605,12 @@ public class AdEmpData extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        new Dashboard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
