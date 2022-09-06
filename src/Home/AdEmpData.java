@@ -460,12 +460,12 @@ public class AdEmpData extends javax.swing.JFrame {
     private void updateMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMemberActionPerformed
         // TODO add your handling code here:
         int row = -1;
-        String id = toUpperCase(EmpIDField.getText());
+        int id = Integer.parseInt(EmpIDField.getText());
         String name = EmpName.getText();
         String address = empAddress.getText();
 
         String mail = EmpEmail.getText();
-        String phn = phoneField.getText();
+        int phn = Integer.parseInt(phoneField.getText());
         EmpIDField.setText("");
         EmpName.setText("");
         empAddress.setText("");
@@ -474,7 +474,7 @@ public class AdEmpData extends javax.swing.JFrame {
         phoneField.setText("");
 
         try {
-            String sql = "UPDATE EMPLOYEES SET NAME = '" + name + "', ADDRESS = '" + address + "', EMAIL = '" + mail + "', PHN = '" + phn + "' WHERE ID = '" + id+ "'";
+            String sql = "UPDATE EMPLOYEES SET NAME = '" + name + "', ADDRESS = '" + address + "', EMAIL = '" + mail + "', PHN = " + phn + " WHERE ID = " + id;
             Statement st = con.createStatement();
             row = st.executeUpdate(sql);
 

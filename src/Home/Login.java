@@ -277,7 +277,7 @@ public class Login extends javax.swing.JFrame {
         else {
             try {
             // TODO add your handling code here:
-            String uname = toLowerCase(username.getText());
+            String uname = toUpperCase(username.getText());
             String pass = password.getText();
             String sql = "SELECT * FROM EMPLOYEES WHERE NAME = '"+ uname + "'";
             Statement st = con.createStatement();
@@ -294,7 +294,7 @@ public class Login extends javax.swing.JFrame {
 
             }
             if (pass.equals(passw) && role.equals("Employee")) {
-                new EmpDashboard().setVisible(true);
+                new EmpDashboard(name).setVisible(true);
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Oops! Invaid", "Information", JOptionPane.INFORMATION_MESSAGE);

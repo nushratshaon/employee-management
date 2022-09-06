@@ -5,7 +5,7 @@
  */
 package Home;
 
-import com.itextpdf.text.pdf.PdfWriter;
+//import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.print.PageFormat;
@@ -527,7 +527,7 @@ public class SalaryAdmin extends javax.swing.JFrame {
                                                         .addComponent(jLabel22))
                                                     .addComponent(bon, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                 .addGap(37, 37, 37)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 406, Short.MAX_VALUE)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)

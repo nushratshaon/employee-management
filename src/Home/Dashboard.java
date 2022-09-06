@@ -219,10 +219,10 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
-        mainPanel.add(SidePannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 780));
+        mainPanel.add(SidePannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 790));
 
         secondPanel.setBackground(new java.awt.Color(223, 245, 243));
 
@@ -446,10 +446,10 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(367, Short.MAX_VALUE))
+                .addContainerGap(377, Short.MAX_VALUE))
         );
 
-        mainPanel.add(secondPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 1010, 780));
+        mainPanel.add(secondPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 1010, 790));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -459,7 +459,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE)
         );
 
         pack();
