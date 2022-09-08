@@ -333,12 +333,12 @@ public class EmployeeLeave2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         //new EmployeeProfile2().setVisible(true);
         dispose();
-        String name = nameField.getText();
-        String id = ide.getText();
-        String sql = "SELECT * FROM EMPLOYEES WHERE NAME = '"+ id + "' OR ID = '"+ id + "'";
+        //String name = nameField.getText();
+        //String id = ide.getText();
+        //String sql = "SELECT * FROM EMPLOYEES WHERE NAME = '"+ id + "' OR ID = '"+ id + "'";
 
-        new EmployeeProfile2(name,id).setVisible(true);
-        dispose();
+        //new EmployeeProfile2(name,id).setVisible(true);
+        //dispose();
 
     }//GEN-LAST:event_jButton2ActionPerformed
 

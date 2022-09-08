@@ -95,10 +95,10 @@ public class AdEmpData extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         empAddress = new javax.swing.JTextField();
-        sala = new javax.swing.JLabel();
         sa = new javax.swing.JTextField();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,7 +148,7 @@ public class AdEmpData extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(EmpTable);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 860, 350));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(319, 0, 1050, 350));
 
         EmpID.setBackground(new java.awt.Color(153, 153, 153));
         EmpID.setForeground(new java.awt.Color(51, 51, 51));
@@ -159,10 +159,10 @@ public class AdEmpData extends javax.swing.JFrame {
                 EmpIDActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 380, 125, -1));
+        jPanel1.add(EmpID, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 370, 125, -1));
 
         jButton2.setText("Employee Name");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 130, -1));
 
         jButton3.setText("Designation");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -170,26 +170,26 @@ public class AdEmpData extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 490, 125, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 125, -1));
 
         jButton6.setText("Phone Number");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 550, 125, -1));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 520, 125, -1));
 
         EmpIDField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmpIDFieldActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpIDField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 225, -1));
-        jPanel1.add(EmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 430, 225, -1));
+        jPanel1.add(EmpIDField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 225, -1));
+        jPanel1.add(EmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 225, -1));
 
         EmpDesig.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EmpDesigActionPerformed(evt);
             }
         });
-        jPanel1.add(EmpDesig, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, 225, -1));
-        jPanel1.add(phoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 550, 225, -1));
+        jPanel1.add(EmpDesig, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 470, 225, -1));
+        jPanel1.add(phoneField, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 520, 225, -1));
 
         addMember.setText("Add Member");
         addMember.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +221,7 @@ public class AdEmpData extends javax.swing.JFrame {
                 searchMemberActionPerformed(evt);
             }
         });
-        jPanel1.add(searchMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 600, 166, -1));
+        jPanel1.add(searchMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 590, 166, -1));
 
         jButton4.setText("Back to Dashboard");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -229,8 +229,8 @@ public class AdEmpData extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 650, 166, -1));
-        jPanel1.add(EmpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, 230, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 640, 166, -1));
+        jPanel1.add(EmpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 570, 225, -1));
 
         SidePannel.setBackground(new java.awt.Color(52, 59, 61));
         SidePannel.setToolTipText("");
@@ -335,94 +335,102 @@ public class AdEmpData extends javax.swing.JFrame {
             .addGroup(SidePannelLayout.createSequentialGroup()
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SidePannelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(SidePannelLayout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(SidePannelLayout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(SidePannelLayout.createSequentialGroup()
+                                    .addGap(30, 30, 30)
+                                    .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePannelLayout.createSequentialGroup()
+                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SidePannelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SidePannelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(adminSectionButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LogOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(27, Short.MAX_VALUE))
+                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(adminSectionButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                            .addComponent(LogOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 5, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePannelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         SidePannelLayout.setVerticalGroup(
             SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SidePannelLayout.createSequentialGroup()
-                .addContainerGap(154, Short.MAX_VALUE)
+                .addGap(102, 102, 102)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jLabel2))
-                .addGap(43, 43, 43)
+                .addGap(44, 44, 44)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(52, 52, 52)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
                     .addComponent(jLabel5))
-                .addGap(41, 41, 41)
+                .addGap(62, 62, 62)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(64, 64, 64)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePannelLayout.createSequentialGroup()
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(SidePannelLayout.createSequentialGroup()
                         .addComponent(jButton9)
-                        .addGap(55, 55, 55))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePannelLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)))
-                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePannelLayout.createSequentialGroup()
-                        .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(adminSectionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20))
-                        .addGap(42, 42, 42)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)))
+                .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(SidePannelLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(adminSectionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SidePannelLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(90, 90, 90))
         );
 
-        jPanel1.add(SidePannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 800));
+        jPanel1.add(SidePannel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 830));
 
         jButton10.setText("   Email");
         jButton10.setActionCommand("         Email");
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 610, 120, -1));
+        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 120, -1));
+        jPanel1.add(empAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 620, 230, -1));
+        jPanel1.add(sa, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 670, 230, 30));
 
-        jLabel1.setText("Address");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 670, 120, 20));
-        jPanel1.add(empAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 670, 230, -1));
+        jButton11.setText("Address");
+        jButton11.setActionCommand("Address");
+        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, 120, -1));
 
-        sala.setText("Salary");
-        jPanel1.add(sala, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 710, 110, 30));
-        jPanel1.add(sa, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 730, 230, 20));
+        jButton12.setText("Salary");
+        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 670, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1247, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1383, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 831, Short.MAX_VALUE)
         );
 
         pack();
@@ -562,6 +570,12 @@ public class AdEmpData extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchMemberActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        new Dashboard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void EmpDesigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpDesigActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmpDesigActionPerformed
@@ -604,13 +618,9 @@ public class AdEmpData extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        new Dashboard().setVisible(true);
+        new AdAttendance().setVisible(true);
         dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -662,6 +672,8 @@ public class AdEmpData extends javax.swing.JFrame {
     private javax.swing.JTextField empAddress;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -670,7 +682,6 @@ public class AdEmpData extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -682,7 +693,6 @@ public class AdEmpData extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField phoneField;
     private javax.swing.JTextField sa;
-    private javax.swing.JLabel sala;
     private javax.swing.JButton searchMember;
     private javax.swing.JButton updateMember;
     // End of variables declaration//GEN-END:variables

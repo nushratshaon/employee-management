@@ -20,6 +20,7 @@ import javax.swing.JFrame;
  */
 public class EmpDashboard extends javax.swing.JFrame {
 Connection con;
+String ename,eid;
     /**
      * Creates new form EmpDashboard
      */
@@ -40,7 +41,9 @@ Connection con;
         //nameField.setText(String.valueOf(Emp.empname).toString());
     }
     public EmpDashboard(String name, String id){
-         try {
+        ename = name;
+        eid = id;
+        try {
             initComponents();
             javaconnect.connectdb();
             con = DriverManager.getConnection("jdbc:derby://localhost:1527/logindb", "login", "12345");
@@ -88,8 +91,6 @@ Connection con;
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         ide = new textfield.TextField();
         nameField = new textfield.TextField();
 
@@ -131,6 +132,11 @@ Connection con;
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Attendance");
         jButton3.setToolTipText("");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(52, 59, 61));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -283,12 +289,6 @@ Connection con;
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/userprofile.png"))); // NOI18N
         jLabel6.setText("jLabel6");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("Designation :");
-
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CEO", "Manager", "Assistant Manager", "Stuff", "Sales Manager", "Accounting Manager", "Senior Engineer" }));
-
         ide.setBackground(new java.awt.Color(204, 204, 255));
         ide.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ide.setLabelText("Employee ID :");
@@ -314,12 +314,6 @@ Connection con;
                             .addComponent(ide, javax.swing.GroupLayout.DEFAULT_SIZE, 415, Short.MAX_VALUE))))
                 .addContainerGap(78, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(264, 264, 264))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, secondPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(394, 394, 394))
@@ -335,11 +329,7 @@ Connection con;
                 .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ide, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addGroup(secondPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mainpannelLayout = new javax.swing.GroupLayout(mainpannel);
@@ -403,9 +393,15 @@ Connection con;
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         
-          new SalaryEmployee().setVisible(true);
+        new SalaryEmployee(ename,eid).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        new EmployeeAttendace(ename,eid).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -451,7 +447,6 @@ Connection con;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -462,7 +457,6 @@ Connection con;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel mainpannel;

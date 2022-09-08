@@ -481,10 +481,11 @@ public class SalaryList extends javax.swing.JFrame {
         String id = EmpID.getText();
         String sa = basi.getText();
         String desi = de.getText();
-        String sql = "SELECT * FROM EMPLOYEES WHERE NAME = '"+ id + "' OR ID = '"+ id + "', SALARY = '"+ sa + "'";
+        String phn = EmpPhn.getText();
+        String sql = "SELECT * FROM EMPLOYEES WHERE NAME = '"+ id + "' OR ID = '"+ id + "', SALARY = '"+ sa + "', PHN = '"+ phn + "'";
             
             
-            new SalaryAdmin(name,id,sa,desi).setVisible(true);
+            new SalaryAdmin(name,id,sa,desi,phn).setVisible(true);
         
     }//GEN-LAST:event_jButton6ActionPerformed
 

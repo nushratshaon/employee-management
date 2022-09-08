@@ -242,7 +242,7 @@ public class Login extends javax.swing.JFrame {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             String passw = null;
-            String role = null;
+            //String role = null;
             String name = null;
             String id = null;
             
@@ -250,12 +250,13 @@ public class Login extends javax.swing.JFrame {
             while (rs.next()) {
 
                 passw = rs.getString("EMPPASSWORD");
-                role = rs.getString("ROLE");
+                //role = rs.getString("ROLE");
                 name = rs.getString("NAME");
                 id = rs.getString("ID");
 
             }
-            if (pass.equals(passw) && role.equals("Employee")) {
+            if (pass.equals(passw)) {
+                JOptionPane.showMessageDialog(null, "Successful");
                 new EmpDashboard(name,id).setVisible(true);
                 dispose();
             } else {

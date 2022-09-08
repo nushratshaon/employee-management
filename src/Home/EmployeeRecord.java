@@ -67,15 +67,11 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
         EmpName = new textfield.TextField();
-        textField3 = new textfield.TextField();
-        textField4 = new textfield.TextField();
+        fn = new textfield.TextField();
+        mn = new textfield.TextField();
         textField5 = new textfield.TextField();
         EmpPhnNo = new textfield.TextField();
         EmpAddress = new textfield.TextField();
@@ -85,9 +81,9 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         EmpId = new javax.swing.JTextField();
         EmpPassword = new textfield.TextField();
-        blood = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         sal = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -230,7 +226,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adminSectionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -245,9 +241,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(SidePannel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+            .addComponent(SidePannel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel3.setBackground(new java.awt.Color(195, 218, 219));
@@ -264,15 +258,11 @@ public class EmployeeRecord extends javax.swing.JFrame {
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("Designation ");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 640, 138, 14));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel15.setText("Gender  :");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, 138, -1));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 630, 138, 14));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel16.setText("Blood Group");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, 138, 20));
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 580, 138, 20));
 
         jButton6.setBackground(new java.awt.Color(255, 255, 255));
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -282,26 +272,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 700, 113, 43));
-
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton7.setText("EDIT");
-        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 700, 118, 43));
-
-        jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton3.setText("Female");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 554, 170, 20));
-
-        jRadioButton4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jRadioButton4.setText("Male");
-        jPanel3.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 554, 170, 20));
+        jPanel3.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 690, 113, 43));
 
         EmpName.setBackground(new java.awt.Color(195, 218, 219));
         EmpName.setLabelText("Name");
@@ -312,13 +283,13 @@ public class EmployeeRecord extends javax.swing.JFrame {
         });
         jPanel3.add(EmpName, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 495, -1));
 
-        textField3.setBackground(new java.awt.Color(195, 218, 219));
-        textField3.setLabelText("Father's Name");
-        jPanel3.add(textField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 495, -1));
+        fn.setBackground(new java.awt.Color(195, 218, 219));
+        fn.setLabelText("Father's Name");
+        jPanel3.add(fn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 495, -1));
 
-        textField4.setBackground(new java.awt.Color(195, 218, 219));
-        textField4.setLabelText("Mothers Name");
-        jPanel3.add(textField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 495, -1));
+        mn.setBackground(new java.awt.Color(195, 218, 219));
+        mn.setLabelText("Mothers Name");
+        jPanel3.add(mn, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 495, -1));
 
         textField5.setBackground(new java.awt.Color(195, 218, 219));
         textField5.setLabelText("Date of Birth ");
@@ -332,8 +303,13 @@ public class EmployeeRecord extends javax.swing.JFrame {
         EmpAddress.setLabelText("Adress");
         jPanel3.add(EmpAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 495, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 640, 200, 20));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Employee", "Staff", "Moderator" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 630, 200, 20));
 
         EmpEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,20 +319,27 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jPanel3.add(EmpEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 670, 160, 30));
 
         jLabel6.setText("Email");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 670, 90, 30));
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 660, 90, 30));
 
         jLabel8.setText("ID");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 720, 30, 20));
-        jPanel3.add(EmpId, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 720, 160, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 700, 30, 20));
+        jPanel3.add(EmpId, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 710, 160, 30));
 
         EmpPassword.setBackground(new java.awt.Color(195, 218, 219));
         EmpPassword.setLabelText("Password");
         jPanel3.add(EmpPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 500, 495, -1));
-        jPanel3.add(blood, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 600, 200, -1));
 
         jLabel9.setText("Salary");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 600, 50, 30));
-        jPanel3.add(sal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 610, 130, 20));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 580, 50, 30));
+        jPanel3.add(sal, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 590, 150, 20));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 580, 200, -1));
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
@@ -371,19 +354,13 @@ public class EmployeeRecord extends javax.swing.JFrame {
         SidePanelLayout.setVerticalGroup(
             SidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(SidePanelLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 777, Short.MAX_VALUE)
         );
 
         getContentPane().add(SidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1063, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
@@ -395,6 +372,8 @@ public class EmployeeRecord extends javax.swing.JFrame {
         String password = EmpPassword.getText();
         String id = EmpId.getText();
         String salary = sal.getText();
+        String fm = fn.getText();
+        String mon = mn.getText();
         EmpName.setText("");
         EmpEmail.setText("");
         EmpPhnNo.setText("");
@@ -402,8 +381,10 @@ public class EmployeeRecord extends javax.swing.JFrame {
         EmpAddress.setText("");
         EmpId.setText("");
         sal.setText("");
+        fn.setText("");
+        mn.setText("");
         try {
-            String sql = "INSERT INTO EMPLOYEES(NAME,EMPPASSWORD,ROLE, ID, EMAIL,ADDRESS, PHN, SALARY) VALUES( ?,  ?, ?,  ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO EMPLOYEES(NAME,EMPPASSWORD,ROLE, ID, EMAIL,ADDRESS, PHN, SALARY,FNAME,MNAME) VALUES(?,?, ?,  ?, ?,  ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, password);
@@ -414,6 +395,8 @@ public class EmployeeRecord extends javax.swing.JFrame {
             ps.setString(6, address);
             ps.setString(7, mobile);
             ps.setString(8,salary);
+            ps.setString(9,fm);
+            ps.setString(10,mon);
 
             row = ps.executeUpdate();
 
@@ -453,6 +436,14 @@ public class EmployeeRecord extends javax.swing.JFrame {
     private void EmpNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmpNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmpNameActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -500,21 +491,20 @@ public class EmployeeRecord extends javax.swing.JFrame {
     private javax.swing.JPanel SidePanel;
     private javax.swing.JPanel SidePannel;
     private javax.swing.JButton adminSectionButton;
-    private javax.swing.JTextField blood;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private textfield.TextField fn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -528,11 +518,8 @@ public class EmployeeRecord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
+    private textfield.TextField mn;
     private javax.swing.JTextField sal;
-    private textfield.TextField textField3;
-    private textfield.TextField textField4;
     private textfield.TextField textField5;
     // End of variables declaration//GEN-END:variables
 }
