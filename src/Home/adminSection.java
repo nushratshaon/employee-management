@@ -42,7 +42,7 @@ public class adminSection extends javax.swing.JFrame {
     
     private void showAll() {
         try {
-            String sql = "SELECT * FROM REGISTRATION";
+            String sql = "SELECT ID,NAME,EMAIL,MOBILE,ADDRESS FROM REGISTRATION";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             AdminTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -546,7 +546,7 @@ public class adminSection extends javax.swing.JFrame {
             AdminEmail.setText("");
             //empAddress.setText("");
             //sa.setText("");
-            //  JOptionPane.showMessageDialog(null, "Deletion successful. Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Deletion successful. Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);

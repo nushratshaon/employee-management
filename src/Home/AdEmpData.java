@@ -42,7 +42,7 @@ public class AdEmpData extends javax.swing.JFrame {
     
     private void showAll() {
         try {
-            String sql = "SELECT * FROM EMPLOYEES";
+            String sql = "SELECT NAME,ROLE,ID,EMAIL,PHN,SALARY,ADDRESS FROM EMPLOYEES";
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             EmpTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -363,9 +363,7 @@ public class AdEmpData extends javax.swing.JFrame {
                             .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                             .addComponent(LogOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 5, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SidePannelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         SidePannelLayout.setVerticalGroup(
@@ -416,7 +414,6 @@ public class AdEmpData extends javax.swing.JFrame {
         jPanel1.add(sa, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 670, 230, 30));
 
         jButton11.setText("Address");
-        jButton11.setActionCommand("Address");
         jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 620, 120, -1));
 
         jButton12.setText("Salary");
@@ -509,7 +506,7 @@ public class AdEmpData extends javax.swing.JFrame {
             row = st.executeUpdate(sql);
 
             System.out.println( "Data update successful. Row:" + row+ " Information");
-            //    JOptionPane.showMessageDialog(null, "Data update successful. Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Data update successful");
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
@@ -529,7 +526,7 @@ public class AdEmpData extends javax.swing.JFrame {
 
             row = st.executeUpdate(sql);
 
-            System.out.println("Deletion successful. Row:" + row + " Information");
+            System.out.println("Deletion successful");
             EmpIDField.setText("");
             EmpName.setText("");
             EmpDesig.setText("");
@@ -537,8 +534,8 @@ public class AdEmpData extends javax.swing.JFrame {
             EmpEmail.setText("");
             empAddress.setText("");
             sa.setText("");
-            //  JOptionPane.showMessageDialog(null, "Deletion successful. Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
-
+            JOptionPane.showMessageDialog(null, "Deletion successful. Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
+            
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
         }

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -84,6 +85,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         sal = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -293,7 +295,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
 
         textField5.setBackground(new java.awt.Color(195, 218, 219));
         textField5.setLabelText("Date of Birth ");
-        jPanel3.add(textField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 495, -1));
+        jPanel3.add(textField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 320, -1));
 
         EmpPhnNo.setBackground(new java.awt.Color(195, 218, 219));
         EmpPhnNo.setLabelText("Contact No.");
@@ -340,6 +342,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 580, 200, -1));
+        jPanel3.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 220, -1));
 
         javax.swing.GroupLayout SidePanelLayout = new javax.swing.GroupLayout(SidePanel);
         SidePanel.setLayout(SidePanelLayout);
@@ -374,6 +377,10 @@ public class EmployeeRecord extends javax.swing.JFrame {
         String salary = sal.getText();
         String fm = fn.getText();
         String mon = mn.getText();
+        String blood = jComboBox1.getSelectedItem().toString();
+        String role = jComboBox2.getSelectedItem().toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(jDateChooser1.getDate());
         EmpName.setText("");
         EmpEmail.setText("");
         EmpPhnNo.setText("");
@@ -384,11 +391,11 @@ public class EmployeeRecord extends javax.swing.JFrame {
         fn.setText("");
         mn.setText("");
         try {
-            String sql = "INSERT INTO EMPLOYEES(NAME,EMPPASSWORD,ROLE, ID, EMAIL,ADDRESS, PHN, SALARY,FNAME,MNAME) VALUES(?,?, ?,  ?, ?,  ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO EMPLOYEES(NAME,EMPPASSWORD,ROLE, ID, EMAIL,ADDRESS, PHN, SALARY,FNAME,MNAME,BLOOD,DOB) VALUES(?,?,?,?, ?,  ?, ?,  ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, password);
-            ps.setString(3,"Employee");
+            ps.setString(3,role);
             
             ps.setString(4, id);
             ps.setString(5, email);
@@ -397,6 +404,8 @@ public class EmployeeRecord extends javax.swing.JFrame {
             ps.setString(8,salary);
             ps.setString(9,fm);
             ps.setString(10,mon);
+            ps.setString(11,blood);
+            ps.setString(12,date);
 
             row = ps.executeUpdate();
 
@@ -502,6 +511,7 @@ public class EmployeeRecord extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;

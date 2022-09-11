@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
@@ -118,6 +119,8 @@ String ename,eid;
         em = new javax.swing.JLabel();
         n = new javax.swing.JLabel();
         phn = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -343,18 +346,37 @@ String ename,eid;
             }
         });
 
+        i.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        de.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         de.setText("jLabel15");
 
+        em.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         em.setText("jLabel16");
 
+        n.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         n.setText("jLabel17");
 
+        phn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         phn.setText("jLabel18");
+
+        jLabel14.setText("Date :");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(208, 208, 208))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton6)
+                        .addGap(135, 135, 135))))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -387,19 +409,13 @@ String ename,eid;
                         .addGap(112, 112, 112)
                         .addComponent(jLabel8)
                         .addGap(37, 37, 37)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(434, 434, 434)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(208, 208, 208))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton6)
-                        .addGap(135, 135, 135))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,12 +442,17 @@ String ename,eid;
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(em))
-                .addGap(146, 146, 146)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(143, 143, 143)
-                .addComponent(jButton6)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addGap(92, 92, 92)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(143, 143, 143)
+                        .addComponent(jButton6))
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -471,7 +492,7 @@ String ename,eid;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        new EmLeave().setVisible(true);
+        new EmployeeLeave2(ename,eid).setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -489,24 +510,7 @@ String ename,eid;
     }//GEN-LAST:event_LogOutButtonActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    /*try {
-        // TODO add your handling code here:
-        String id = i.getText();
-        String sql = "SELECT * FROM SALARY WHERE ID = '" +id + "'";
-        Statement st = con.createStatement();
-        ResultSet rs = st.executeQuery(sql);
-        int x =0;
-        
-        while(rs.next()){
-            x = rs.getInt("PRESENT");
-        }
-        x = x+1;
-        String sql2 = "UPDATE SALARY SET PRESENT = "+x+" WHERE ID = '" + id + "'";
-        Statement st2 = con.createStatement();
-        st2.executeUpdate(sql);
-    } catch (SQLException ex) {
-        Logger.getLogger(EmployeeAttendace.class.getName()).log(Level.SEVERE, null, ex);
-    }*/
+    
         int row = -1;
         String id = i.getText();
         String name = n.getText();
@@ -514,22 +518,21 @@ String ename,eid;
         //String phn1 = phn.getText();
         //String email = em.getText();
         String leave = jComboBox1.getSelectedItem().toString();
-        //int quantityint = Integer.parseInt(quantity);
-        //String unitPrice = unitPriceField.getText();
-        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String date = sdf.format(jDateChooser1.getDate());        
         try {
-            String sql = "INSERT INTO ATTENDANCEUNTITLED(ID, NAME, ROLE,STATUS) VALUES( ?,  ?,  ?,  ?)";
+            String sql = "INSERT INTO ATTENDANCEUNTITLED(ID, NAME, ROLE,STATUS,DATE) VALUES(?, ?,  ?,  ?,  ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, id);
             ps.setString(2, name);
             ps.setString(3, desig);
             ps.setString(4, leave);
+            ps.setString(5, date);
             
 
             row = ps.executeUpdate();
 
-            System.out.println("Inserted successfully");
-            JOptionPane.showMessageDialog(null, "Successful");
+            JOptionPane.showMessageDialog(null, "Submitted");
             //  JOptionPane.showMessageDialog(null, "Data insertionsuccessful.Row:" + row, "Information", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
@@ -595,11 +598,13 @@ String ename,eid;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

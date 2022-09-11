@@ -112,7 +112,7 @@ public class SalaryAdmin extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        yea = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -290,7 +290,7 @@ public class SalaryAdmin extends javax.swing.JFrame {
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adminSectionButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(SidePannelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LogOutButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -341,16 +341,16 @@ public class SalaryAdmin extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(153, 102, 255));
         jLabel9.setText("Current Year");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        yea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                yeaActionPerformed(evt);
             }
         });
 
         jLabel10.setBackground(new java.awt.Color(153, 102, 255));
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(153, 102, 255));
-        jLabel10.setText("Emlpoyee ID");
+        jLabel10.setText("Emlpoyee ID :");
 
         jPanel3.setBackground(new java.awt.Color(93, 131, 166));
 
@@ -413,9 +413,13 @@ public class SalaryAdmin extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(153, 102, 255));
         jLabel18.setText("Bonus: ");
 
+        bon.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        bon.setText("0");
+
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(153, 102, 255));
 
+        TravelA.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TravelA.setText("500");
         TravelA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -423,12 +427,14 @@ public class SalaryAdmin extends javax.swing.JFrame {
             }
         });
 
+        medA.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         medA.setText("500");
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(153, 102, 255));
         jLabel24.setText("Over Time :");
 
+        overTime.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         overTime.setText("0");
 
         jButton8.setForeground(new java.awt.Color(153, 102, 255));
@@ -451,6 +457,7 @@ public class SalaryAdmin extends javax.swing.JFrame {
         jLabel27.setForeground(new java.awt.Color(153, 102, 255));
         jLabel27.setText("Rate per hour :");
 
+        ratePerhour.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ratePerhour.setText("0");
 
         jButton10.setForeground(new java.awt.Color(153, 102, 255));
@@ -461,9 +468,22 @@ public class SalaryAdmin extends javax.swing.JFrame {
             }
         });
 
+        TotalS.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        salaryID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        s.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        de.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(153, 102, 255));
-        jLabel21.setText("Phone");
+        jLabel21.setText("         Phone :");
+
+        p.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        m.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        m.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -527,8 +547,8 @@ public class SalaryAdmin extends javax.swing.JFrame {
                                 .addGap(37, 37, 37)
                                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(114, 114, 114)
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(105, 105, 105)
+                                .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(p, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1782, 1782, 1782)
@@ -547,7 +567,7 @@ public class SalaryAdmin extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel9)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(yea, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(672, 672, 672)
                                         .addComponent(jLabel6)
                                         .addGap(18, 18, 18)
@@ -573,7 +593,7 @@ public class SalaryAdmin extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(yea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -632,7 +652,7 @@ public class SalaryAdmin extends javax.swing.JFrame {
                                 .addGap(34, 34, 34)
                                 .addComponent(jLabel13))
                             .addComponent(TotalS, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -702,7 +722,7 @@ public class SalaryAdmin extends javax.swing.JFrame {
         //calculate the total hours of overtime
         double Total_Overtime = overtime * overtimeRate;
         String x = String.valueOf(Total_Overtime);
-        ratePerhour.setText("1000");
+        ratePerhour.setText("1000.00");
 
         //calculate overall overtime 
         //dbop = salary /days/eight;
@@ -721,7 +741,7 @@ public class SalaryAdmin extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
         int row = -1;
-        String name = toUpperCase(Ename.getText());
+        String name = salaryName.getText();
         String basic = s.getText();
         String traAllo = TravelA.getText();
         String bonu = bon.getText();
@@ -730,6 +750,8 @@ public class SalaryAdmin extends javax.swing.JFrame {
         String d = de.getText();
         String ph = p.getText();
         String deduct = m.getText();
+        String mon = jComboBox1.getSelectedItem().toString();
+        String year = yea.getText();
         Ename.setText("");
         s.setText("");
         TravelA.setText("");
@@ -737,8 +759,9 @@ public class SalaryAdmin extends javax.swing.JFrame {
         TotalS.setText("");
         salaryID.setText("");
         m.setText("");
+        yea.setText("");
         try {
-            String sql = "INSERT INTO SALARY(ID, NAME, BASIC, TSALARY, BONUS, TOTAL, ROLE,PHN,DEDUCT) VALUES(?,?, ?, ?,  ?, ?,  ?, ?, ?)";
+            String sql = "INSERT INTO SALARY(ID, NAME, BASIC, TSALARY, BONUS, TOTAL, ROLE,PHN,DEDUCT,MONTH,Y) VALUES(?,?,?,?, ?, ?,  ?, ?,  ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, id);
             ps.setString(2, name);
@@ -749,6 +772,8 @@ public class SalaryAdmin extends javax.swing.JFrame {
             ps.setString(7, d);
             ps.setString(8, ph);
             ps.setString(9, deduct);
+            ps.setString(10, mon);
+            ps.setString(11, year);
 
             row = ps.executeUpdate();
 
@@ -773,9 +798,9 @@ public class SalaryAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void yeaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yeaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_yeaActionPerformed
 
     private void TravelAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TravelAActionPerformed
         // TODO add your handling code here:
@@ -861,7 +886,6 @@ public class SalaryAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField m;
     private javax.swing.JTextField medA;
     private javax.swing.JTextField overTime;
@@ -870,5 +894,6 @@ public class SalaryAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel s;
     private javax.swing.JLabel salaryID;
     private javax.swing.JLabel salaryName;
+    private javax.swing.JTextField yea;
     // End of variables declaration//GEN-END:variables
 }
